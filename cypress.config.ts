@@ -1,10 +1,8 @@
 import fs from 'fs';
 import { defineConfig } from 'cypress';
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
-// @ts-ignore
+
 import { preprocessor } from '@badeball/cypress-cucumber-preprocessor/browserify';
-// @ts-ignore
-// import getCompareSnapshotsPlugin from 'cypress-image-diff-js/plugin';
 
 export default defineConfig({
 
