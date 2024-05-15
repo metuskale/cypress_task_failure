@@ -4,10 +4,11 @@
     "cy:run": "cypress run --browser chrome"
   },
   "dependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^20.0.5",
-    "cypress": "^13.9.0",
-    "fs": "^0.0.1-security",
-    "typescript": "^5.4.5"
+    "@badeball/cypress-cucumber-preprocessor": "latest",
+    "@cypress/browserify-preprocessor": "latest",
+    "cypress": "latest",
+    "typescript": "latest",
+    "fs": "^0.0.1-security"
   },
 
   "cypress-cucumber-preprocessor": {

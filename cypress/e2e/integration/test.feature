@@ -1,4 +1,4 @@
-Feature: CJIT Validation without background
+Feature: Validation without background
 
     Scenario: 01 - Test
         Given open git website is opened

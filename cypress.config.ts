@@ -1,8 +1,7 @@
 import fs from 'fs';
 import { defineConfig } from 'cypress';
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
-
-import { preprocessor } from '@badeball/cypress-cucumber-preprocessor/browserify';
+import { preprocessor } from "@badeball/cypress-cucumber-preprocessor/browserify";
 
 export default defineConfig({
 
@@ -38,8 +37,13 @@ export default defineConfig({
     specPattern: 'cypress/e2e/**/*.feature',
     async setupNodeEvents(cypressOn, config) {
       await addCucumberPreprocessorPlugin(cypressOn, config);
-      cypressOn('file:preprocessor', preprocessor(config, {typescript: require.resolve('typescript'),}));
-      // @ts-ignore
+      cypressOn(
+          "file:preprocessor",
+          preprocessor(config, {
+            typescript: require.resolve("typescript"),
+          })
+      );
+
       cypressOn('before:browser:launch', (browser, launchOptions) => {
         launchOptions.args.push('--window-size=2880,1620');
         if (browser.name === 'chrome' && browser.isHeadless) {
