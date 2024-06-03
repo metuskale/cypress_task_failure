@@ -13,10 +13,4 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using ES2015 syntax:
 import './commands/utils'
-// import compareSnapshotCommand from 'cypress-image-diff-js/dist/command';
-// import { commandTimings } from 'cypress-timings';
-
-// compareSnapshotCommand();
-// commandTimings();

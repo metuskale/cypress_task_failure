@@ -59,7 +59,7 @@ export default defineConfig({
       });
 
       cypressOn('task', {
-        getDownloadedFileName() {
+        async getDownloadedFileName() {
           let files;
           let start = Date.now();
           let elapsed = Date.now();
@@ -70,7 +70,8 @@ export default defineConfig({
               return str.endsWith('.xlsx') || str.endsWith('.ris') || str.endsWith('.csv');
             });
             elapsed = Date.now() - start;
-          } while (files.length < 1 && elapsed < 100000);
+            await sleep(100);
+          } while (files.length < 1 && elapsed < 29000);
 
           if (files.length > 0) {
             // It's an array but will/should have only one element
@@ -82,6 +83,9 @@ export default defineConfig({
           }
         }
       });
+      function sleep (ms:number) {
+        return new Promise(resolve => setTimeout(resolve, ms))
+      }
       return config;
     }
   },

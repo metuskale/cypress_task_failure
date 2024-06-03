@@ -1,17 +1,12 @@
 import {Given, Then, When} from "@badeball/cypress-cucumber-preprocessor";
-import {getDownloadedFileName} from "../../../support/commands/utils";
+import SearchPageComponent from "../components/SearchPageComponent";
 
-Given(/^open git website is opened$/, function () {
-    cy.visit('www.github.com')
+Given(/^duck duck go website is opened$/, function () {
+    SearchPageComponent.open();
 });
-When(/^we wait for a file download that never happens$/, function () {
-    getDownloadedFileName('downloadedFilename');
+When(/^we search for "([^"]*)"$/, function (element:string) {
+    SearchPageComponent.searchFor(element)
 });
-Then(/^the downloaded filename should not equal TIMEOUT$/, function () {
-    cy.get<string>('@downloadedFilename').then((fileName: string) => {
-        cy.wrap(fileName).should('not.equal', "TIMEOUT");
-    });
-});
-Then(/^this will never be executed$/, function () {
-    cy.wrap('1').should("eq", "1");
+Then(/^the title should contain "([^"]*)"$/, function (title:string) {
+    SearchPageComponent.validateTitleContains(title)
 });
